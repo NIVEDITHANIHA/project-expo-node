@@ -1,7 +1,7 @@
 const projects = require("../Modals/projectSchema");
 
 exports.addProjects = async (req, res) => {
-    userId = req.payload
+   const userId = req.payload
     console.log(userId);
 
     const project_img = req.file.filename
@@ -10,7 +10,7 @@ exports.addProjects = async (req, res) => {
     console.log("req.body", project_title, language_used, github_link, website_link, project_overview);
 
     try {
-        existingProjects = await projects.findOne({ github_link: github_link })
+       const existingProjects = await projects.findOne({ github_link: github_link })
 
         if (existingProjects) {
             res.status(406).json("existing Github Link")
@@ -94,7 +94,7 @@ exports.getHomeProjects = async (req, res) => {
 
 exports.userSpecificProjects = async (req, res) => {
 
-    userId = req.payload
+   const userId = req.payload
     console.log(userId);
     try {
         const userProjects = await projects.find({ user_id: userId })
