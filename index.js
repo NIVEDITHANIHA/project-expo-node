@@ -42,7 +42,7 @@ pfserver.use(router)
 pfserver.use('/uploads', express.static('./uploads'))
 
 // port
-const PORT = 4000 || process.env
+const PORT = process.env.PORT || 4000 
 
 
 //  run server
